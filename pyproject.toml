@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sbahn"
+version = "0.1.0"
+description = "Predict Berlin S-Bahn delay from information known before departure."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+dependencies = [
+  "numpy==2.5.3",
+  "pandas==3.0.6",
+  "pandera==0.26.1",
+  "pyarrow==21.0.0",
+]
+
+[project.optional-dependencies]
+notebooks = [
+  "kagglehub==1.0.2",
+  "matplotlib==3.11.2",
+]
+dev = [
+  "pytest==8.3.5",
+]
+
+[project.scripts]
+sbahn-predict = "sbahn.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

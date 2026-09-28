@@ -21,11 +21,16 @@ build/
 .env.*
 kaggle.json
 
-# Data and model artifacts
-data/*
-!data/.gitkeep
+# Downloaded and generated data
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
 *.db
 *.sqlite
+*.parquet
 *.pkl
 *.joblib
 
