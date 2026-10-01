@@ -1,0 +1,20 @@
+{
+  "cutoff": "2024-11-01",
+  "n_splits": 5,
+  "n_trials": 40,
+  "threshold": 0.5,
+  "oversample": true,
+  "best_mean_f1": 0.4353149155825423,
+  "best_params": {
+    "n_estimators": 135,
+    "learning_rate": 0.03386334402039704,
+    "num_leaves": 45,
+    "min_child_samples": 151,
+    "subsample": 0.7415182488554084,
+    "colsample_bytree": 0.9472306909872088,
+    "reg_alpha": 0.005856248903873494,
+    "reg_lambda": 0.0008414809694997378,
+    "scale_pos_weight": 22.200559494896787
+  },
+  "test_f1": 0.7336594041796354
+}

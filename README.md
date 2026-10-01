@@ -52,3 +52,12 @@ Validated copies of the seven tables, with timestamps parsed, are written to `da
 ```powershell
 python -m sbahn.data.interim
 ```
+
+Tuning runs are written to a local MLflow store at `mlruns/mlflow.db` (not committed). Record the studies already saved under `reports/optuna/`, then open the UI:
+
+```powershell
+python -m sbahn.models.tracking
+mlflow ui --backend-store-uri sqlite:///mlruns/mlflow.db
+```
+
+`python -m sbahn.models.tune` and `python -m sbahn.models.compare_imbalance` record a new parent run for each treatment and a nested run for each Optuna trial. `python -m sbahn.models.evaluate` scores the unweighted model once on November–December and writes `reports/evaluation/test_metrics.json`.

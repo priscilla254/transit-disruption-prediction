@@ -10,10 +10,14 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
 dependencies = [
+  "lightgbm==4.6.0",
+  "mlflow==3.16.1",
   "numpy==2.5.3",
+  "optuna==4.5.0",
   "pandas==3.0.6",
   "pandera==0.26.1",
   "pyarrow==21.0.0",
+  "scikit-learn==1.7.2",
 ]
 
 [project.optional-dependencies]

@@ -34,6 +34,9 @@ data/processed/*
 *.pkl
 *.joblib
 
+# Local MLflow file store
+mlruns/
+
 # OS
 .DS_Store
 Thumbs.db

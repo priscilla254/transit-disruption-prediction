@@ -1,1 +1,1 @@
-"""Training, tuning, and evaluation. No model is trained yet."""
+"""Training, tuning, and evaluation."""
