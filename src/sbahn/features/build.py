@@ -95,7 +95,7 @@ def add_prior_window(
     counts = pd.Series(0, index=out.index, dtype="int64")
     rates = pd.Series(np.nan, index=out.index, dtype="float64")
     means = pd.Series(np.nan, index=out.index, dtype="float64")
-    for _, index in out.groupby(group_column, sort=False).groups.items():
+    for index in out.groupby(group_column, sort=False).groups.values():
         part = out.loc[index].sort_values("scheduled_departure_time", kind="mergesort")
         times = part["scheduled_departure_time"].to_numpy(dtype="datetime64[ns]")
         delayed = part["is_delayed"].to_numpy(dtype=np.float64)

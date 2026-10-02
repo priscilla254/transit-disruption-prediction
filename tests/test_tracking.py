@@ -3,11 +3,11 @@ import json
 import mlflow
 import pandas as pd
 import pytest
+from test_tune import _frame
 
 from sbahn.models.splits import temporal_split
 from sbahn.models.tracking import backfill, log_search_result, study_run
 from sbahn.models.tune import run_study
-from test_tune import _frame
 
 
 def _uri(tmp_path) -> str:

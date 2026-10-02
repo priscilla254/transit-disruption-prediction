@@ -1,7 +1,10 @@
-.PHONY: install test interim data features tune track evaluate slices shap
+.PHONY: install lint test interim data features train tune track evaluate slices shap predict pipeline
 
 install:
 	python -m pip install -e ".[dev,notebooks]"
+
+lint:
+	python -m ruff check .
 
 test:
 	python -m pytest
@@ -15,7 +18,7 @@ data:
 features:
 	python -m sbahn.features.build --in data/interim/trips_merged.parquet --out data/processed/trips_features.parquet
 
-tune:
+train tune:
 	python -m sbahn.models.tune --in data/processed/trips_features.parquet --cutoff 2024-11-01 --n-splits 5 --n-trials 40
 
 track:
@@ -29,3 +32,15 @@ slices:
 
 shap:
 	python -m sbahn.models.shap_explain
+
+predict:
+	python -m sbahn.predict --input data/processed/trips_features.parquet --output reports/evaluation/batch_predictions.parquet
+
+pipeline:
+	$(MAKE) interim
+	$(MAKE) data
+	$(MAKE) features
+	$(MAKE) train
+	$(MAKE) evaluate
+	$(MAKE) slices
+	$(MAKE) shap

@@ -3,6 +3,7 @@ import math
 import numpy as np
 import pandas as pd
 import pytest
+from test_tune import _frame
 
 from sbahn.models.evaluate import (
     attach_minutes,
@@ -16,7 +17,6 @@ from sbahn.models.evaluate import (
 )
 from sbahn.models.splits import temporal_split
 from sbahn.models.tune import choose_threshold
-from test_tune import _frame
 
 
 def test_macro_f1_and_recalls_on_a_known_prediction():

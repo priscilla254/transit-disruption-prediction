@@ -1,0 +1,14 @@
+.git
+.venv
+venv
+mlruns
+.pytest_cache
+.ruff_cache
+.mypy_cache
+**/__pycache__
+**/*.pyc
+notebooks
+data
+*.parquet
+*.db
+.ipynb_checkpoints

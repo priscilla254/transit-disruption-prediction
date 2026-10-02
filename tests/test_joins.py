@@ -1,4 +1,5 @@
 import pandas as pd
+import pytest
 
 from sbahn.data.joins import (
     flag_events,
@@ -16,6 +17,22 @@ def test_orphan_ids_counts_missing_parents():
     count, missing = orphan_ids(values, parent)
     assert count == 1
     assert missing == ["S9"]
+
+
+def test_trip_references_count_a_missing_station():
+    trips = pd.DataFrame(
+        {
+            "line_id": ["S1"],
+            "start_station_id": ["S1"],
+            "end_station_id": ["S9"],
+        }
+    )
+    lines = pd.DataFrame({"line_id": ["S1"]})
+    stations = pd.DataFrame({"station_id": ["S1"]})
+    orphans = trip_reference_orphans(trips, lines, stations)
+    assert orphans["line_id"][0] == 0
+    assert orphans["start_station_id"][0] == 0
+    assert orphans["end_station_id"] == (1, ["S9"])
 
 
 def test_trip_references_match_when_ids_exist():
@@ -48,6 +65,41 @@ def test_merge_weather_uses_the_floored_hour():
     merged = merge_weather(trips, weather)
     assert merged.loc[0, "temperature_c"] == 8.0
     assert len(merged) == 1
+
+
+def test_merge_weather_leaves_a_missing_hour_null():
+    trips = pd.DataFrame(
+        {
+            "trip_id": [1],
+            "scheduled_departure_time": pd.to_datetime(["2024-01-01 14:37:00"]),
+        }
+    )
+    weather = pd.DataFrame(
+        {
+            "timestamp": pd.to_datetime(["2024-01-01 15:00:00"]),
+            "temperature_c": [9.0],
+        }
+    )
+    merged = merge_weather(trips, weather)
+    assert len(merged) == 1
+    assert pd.isna(merged.loc[0, "temperature_c"])
+
+
+def test_merge_weather_refuses_a_duplicated_hour():
+    trips = pd.DataFrame(
+        {
+            "trip_id": [1],
+            "scheduled_departure_time": pd.to_datetime(["2024-01-01 14:37:00"]),
+        }
+    )
+    weather = pd.DataFrame(
+        {
+            "timestamp": pd.to_datetime(["2024-01-01 14:00:00", "2024-01-01 14:10:00"]),
+            "temperature_c": [8.0, 8.5],
+        }
+    )
+    with pytest.raises(AssertionError, match="merge_weather"):
+        merge_weather(trips, weather)
 
 
 def test_flag_incidents_is_line_scoped_and_half_open():
@@ -85,6 +137,30 @@ def test_flag_incidents_is_line_scoped_and_half_open():
     assert by_id.loc[4, "has_incident"] == 0
 
 
+def test_flag_incidents_keeps_the_latest_then_the_smallest_id():
+    trips = pd.DataFrame(
+        {
+            "trip_id": [1, 2],
+            "line_id": ["S1", "S1"],
+            "scheduled_departure_time": pd.to_datetime(
+                ["2024-01-13 10:00:00", "2024-01-13 10:00:00"]
+            ),
+        }
+    )
+    incidents = pd.DataFrame(
+        {
+            "incident_id": ["b", "a", "early"],
+            "line_id": ["S1", "S1", "S1"],
+            "timestamp": pd.to_datetime(
+                ["2024-01-13 09:30:00", "2024-01-13 09:30:00", "2024-01-13 09:00:00"]
+            ),
+            "incident_type": ["Later B", "Later A", "Earlier"],
+        }
+    )
+    flagged = flag_incidents(trips, incidents).set_index("trip_id")
+    assert flagged["incident_type"].tolist() == ["Later A", "Later A"]
+
+
 def test_flag_events_matches_line_membership():
     trips = pd.DataFrame(
         {
@@ -116,6 +192,27 @@ def test_flag_events_matches_line_membership():
     assert flagged.loc[4, "is_event_day"] == 0
     assert pd.isna(flagged.loc[4, "event_name"])
     assert flagged.loc[5, "is_event_day"] == 0
+
+
+def test_flag_events_keeps_the_alphabetical_name():
+    trips = pd.DataFrame(
+        {
+            "trip_id": [1],
+            "line_id": ["S1"],
+            "scheduled_departure_time": pd.to_datetime(["2024-09-06 08:00:00"]),
+        }
+    )
+    events = pd.DataFrame(
+        {
+            "event_name": ["Zebra", "Alpha"],
+            "date": pd.to_datetime(["2024-09-06", "2024-09-06"]),
+            "impact_on_lines": ["S1", "S1"],
+        }
+    )
+    flagged = flag_events(trips, events)
+    assert flagged.loc[0, "is_event_day"] == 1
+    assert flagged.loc[0, "event_name"] == "Alpha"
+    assert len(flagged) == 1
 
 
 def test_flag_strikes_uses_a_half_open_window():

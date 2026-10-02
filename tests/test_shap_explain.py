@@ -3,10 +3,13 @@ import math
 import numpy as np
 import pandas as pd
 
-from sbahn.models.shap_explain import mean_abs_importance, select_cases, tree_explanation
+from sbahn.models.shap_explain import (
+    mean_abs_importance,
+    select_cases,
+    tree_explanation,
+)
 from sbahn.models.splits import temporal_split
 from sbahn.models.tune import _fit_fold
-
 
 PARAMS = {
     "n_estimators": 8,

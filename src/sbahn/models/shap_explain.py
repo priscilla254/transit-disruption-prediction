@@ -254,7 +254,7 @@ def main() -> None:
             "cutoff": operating["cutoff"],
             "threshold": threshold,
             "model": "no-weighting",
-            "test_rows": int(len(meta)),
+            "test_rows": len(meta),
             "features": importance,
         },
     )

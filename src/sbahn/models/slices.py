@@ -48,7 +48,7 @@ def group_metrics(frame: pd.DataFrame, column: str, levels: list | tuple) -> lis
     rows: list[dict] = []
     for level in levels:
         part = frame.loc[frame[column] == level]
-        n = int(len(part))
+        n = len(part)
         group = int(level) if isinstance(level, int) else str(level)
         if n == 0:
             rows.append(
@@ -144,7 +144,7 @@ def main() -> None:
         "cutoff": operating["cutoff"],
         "threshold": threshold,
         "model": "no-weighting",
-        "test_rows": int(len(predictions)),
+        "test_rows": len(predictions),
         "slices": tables,
     }
     write_best_params(Path(args.out), payload)

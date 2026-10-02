@@ -127,8 +127,8 @@ def evaluate(
     return {
         "cutoff": cutoff,
         "threshold": threshold,
-        "development_rows": int(len(development)),
-        "test_rows": int(len(test)),
+        "development_rows": len(development),
+        "test_rows": len(test),
         **scores,
     }
 
@@ -242,7 +242,7 @@ def operating_report(
         "development_f1": selection["development_f1"],
         "development_f1_at_0_5": selection["development_f1_at_0_5"],
         "thresholds": selection["thresholds"],
-        "test_rows": int(len(test)),
+        "test_rows": len(test),
         "test_macro_f1": scores["macro_f1"],
         "test_recall_on_time": scores["recall_on_time"],
         "test_recall_delayed": scores["recall_delayed"],

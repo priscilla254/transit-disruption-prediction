@@ -99,7 +99,7 @@ def log_sweep_result(payload: dict) -> None:
     mlflow.log_metric("development_f1", float(payload["development_f1"]))
     mlflow.log_metric("test_f1", float(payload["test_f1"]))
     for row in payload["thresholds"]:
-        step = int(round(float(row["threshold"]) * 100))
+        step = round(float(row["threshold"]) * 100)
         mlflow.log_metric("pooled_f1", float(row["f1"]), step=step)
 
 
