@@ -2,7 +2,7 @@
 
 **Synthetic data.** The Berlin S-Bahn punctuality records used in this project are synthetic. They are not official S-Bahn Berlin or Deutsche Bahn operational data. Delays, cancellations, incidents, weather, events, and strikes in this dataset do not describe real service. Do not use results from this project to judge actual punctuality or to make operational decisions.
 
-This repository is a placeholder for exploring whether trip, weather, and disruption features can predict S-Bahn delay. The exploratory checks live in `notebooks/01_eda.ipynb`.
+Trip, weather, and disruption features are used to predict whether a trip is delayed. The exploratory checks live in `notebooks/01_eda.ipynb`. The evaluation is summarized below and written up in `docs/model_card.md`.
 
 ```
 data/raw/          Kaggle files, not committed
@@ -12,7 +12,7 @@ notebooks/         01_eda, 02_features, 03_evaluation
 src/sbahn/         loading, features, models, predict
 tests/             joins, leakage, temporal split
 docs/              data quality, feature dictionary, model card
-reports/figures/   saved figures
+reports/           evaluation tables and figures
 ```
 
 ## Data summary
@@ -29,6 +29,18 @@ Source: [Berlin S-Bahn Punctuality Database](https://www.kaggle.com/datasets/alp
 ## EDA
 
 See `notebooks/01_eda.ipynb`. The 860 cancelled trips are dropped. About 3% of the remaining trips are delayed, and 0–5 minutes count as on time. Table checks and the leakage rules are in `docs/data_quality.md` and `docs/feature_dictionary.md`.
+
+## Results
+
+The shipped model is the unweighted LightGBM classifier in `reports/optuna/baseline_params.json`. It is fit on January–October (109,485 trips) and scored once on November–December (21,426 trips). A trip is called delayed when its probability is at least 0.30. That cutoff was chosen on January–October only. The full account, including the slice tables and the SHAP reading, is in `docs/model_card.md`. The plots are shown in `notebooks/03_evaluation.ipynb`.
+
+At 0.30 the holdout confusion matrix is 20,380 true on-time, 162 false alarms, 91 missed delays, and 793 caught delays. Delayed-class F1 is 0.862, on-time recall is 0.992, and delayed recall is 0.897.
+
+`reports/evaluation/test_metrics.json` scores the same trees at the search's own cutoff of 0.50 instead: delayed-class F1 0.874, macro-F1 0.934. That file also reports a separate regression model — the same tree settings, without `scale_pos_weight`, predicting `delay_minutes` instead of `is_delayed` — at MAE 1.65 minutes and RMSE 10.83 minutes. RMSE is much larger than MAE because a few large misses, likely the strike-day delays, are squared and dominate the average; most trips are predicted within a minute or two.
+
+The 0.862 score is lifted by strike days. Ordinary days, with no strike, incident, or event, have delayed-class F1 0.717 and hold 126 of the 162 false alarms and 86 of the 91 misses. Strike days (565 trips, 93.6% delayed) have F1 0.962. S41 and S42 together account for 83 false alarms and 60 missed delays. The weakest hours are 08:00 (F1 0.707) and 16:00 (F1 0.703). Heavy rain, above 2 mm, holds 55 of the 91 missed delays. The event-day slice has no November–December trips, and the 8 incident trips were all on time.
+
+TreeSHAP on those same rows starts from an expected log-odds of −6.77, about a 0.1% chance of delay, so a trip needs a large positive push to reach probability 0.30. The largest mean absolute contributions are the previous hour's mean delay on the line (0.426), weather condition (0.373), route (0.330), and the previous day's mean delay (0.259). A strike day is a large push when the flag is on. The four trips closest to 0.30 are in `reports/evaluation/shap_cases.json`.
 
 ## Setup
 
