@@ -1,0 +1,776 @@
+{
+  "cutoff": "2024-11-01",
+  "threshold": 0.3,
+  "model": "no-weighting",
+  "base_value": -6.768494943985923,
+  "cases": [
+    {
+      "role": "strike_caught",
+      "row": 15977,
+      "line_id": "S41",
+      "hour": 8,
+      "disruption": "strike",
+      "probability": 0.3039229224124931,
+      "predicted": 1,
+      "is_delayed": 1,
+      "contributions": [
+        {
+          "feature": "is_strike_day",
+          "value": 1,
+          "shap": 5.014475628389576
+        },
+        {
+          "feature": "line_mean_delay_prev_day",
+          "value": 31.02,
+          "shap": 1.2755062622004454
+        },
+        {
+          "feature": "line_delay_rate_prev_day",
+          "value": 0.9,
+          "shap": 1.068153574911725
+        },
+        {
+          "feature": "line_mean_delay_prev_hour",
+          "value": 1.0,
+          "shap": -0.708083387973042
+        },
+        {
+          "feature": "route_key",
+          "value": "S41|S2|S4",
+          "shap": -0.3508767747523996
+        },
+        {
+          "feature": "line_delay_rate_prev_hour",
+          "value": 0.0,
+          "shap": -0.20527258350322594
+        },
+        {
+          "feature": "start_station_delay_rate_prev_hour",
+          "value": null,
+          "shap": 0.1620262252260713
+        },
+        {
+          "feature": "day_of_week",
+          "value": 2,
+          "shap": -0.12529152907122368
+        },
+        {
+          "feature": "weather_condition",
+          "value": "Clear",
+          "shap": -0.10051779637091246
+        },
+        {
+          "feature": "wind_speed_kmh",
+          "value": 9.78,
+          "shap": -0.0750970948785173
+        },
+        {
+          "feature": "is_peak_hour",
+          "value": 1,
+          "shap": 0.062423104442738575
+        },
+        {
+          "feature": "hour",
+          "value": 8,
+          "shap": -0.04738991665548778
+        },
+        {
+          "feature": "precipitation_mm",
+          "value": 0.0,
+          "shap": -0.037410754103816515
+        },
+        {
+          "feature": "temperature_c",
+          "value": 21.19,
+          "shap": -0.016784141427684973
+        },
+        {
+          "feature": "is_ring_line",
+          "value": 1,
+          "shap": 0.016624438602926343
+        },
+        {
+          "feature": "month",
+          "value": 11,
+          "shap": 0.011557815663236912
+        },
+        {
+          "feature": "end_station_id",
+          "value": "S4",
+          "shap": -0.009066987701632325
+        },
+        {
+          "feature": "network_load",
+          "value": 8,
+          "shap": 0.007085976032774068
+        },
+        {
+          "feature": "start_station_trips_prev_hour",
+          "value": 0,
+          "shap": 0.0057617729027928275
+        },
+        {
+          "feature": "line_trips_prev_day",
+          "value": 50,
+          "shap": -0.005250217284097012
+        },
+        {
+          "feature": "rain_at_peak",
+          "value": 0,
+          "shap": -0.003270993403330739
+        },
+        {
+          "feature": "is_event_day",
+          "value": 0,
+          "shap": -0.0030559013715375015
+        },
+        {
+          "feature": "line_id",
+          "value": "S41",
+          "shap": 0.001984907932344096
+        },
+        {
+          "feature": "is_weekend",
+          "value": 0,
+          "shap": 0.0009098433174299552
+        },
+        {
+          "feature": "is_raining",
+          "value": 0,
+          "shap": 0.0004931584420945794
+        },
+        {
+          "feature": "line_trips_prev_hour",
+          "value": 1,
+          "shap": 0.0004787922954763344
+        },
+        {
+          "feature": "event_name",
+          "value": null,
+          "shap": -0.0004025333913351195
+        },
+        {
+          "feature": "location_pair",
+          "value": "city_center to city_center",
+          "shap": 9.778221411381123e-05
+        },
+        {
+          "feature": "end_is_major_hub",
+          "value": 1,
+          "shap": 0.0
+        },
+        {
+          "feature": "end_location_category",
+          "value": "city_center",
+          "shap": 0.0
+        },
+        {
+          "feature": "has_incident",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "hub_pattern",
+          "value": "both",
+          "shap": 0.0
+        },
+        {
+          "feature": "incident_type",
+          "value": null,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_is_major_hub",
+          "value": 1,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_location_category",
+          "value": "city_center",
+          "shap": 0.0
+        },
+        {
+          "feature": "start_station_id",
+          "value": "S2",
+          "shap": 0.0
+        }
+      ]
+    },
+    {
+      "role": "ordinary_miss",
+      "row": 15865,
+      "line_id": "S42",
+      "hour": 9,
+      "disruption": "none",
+      "probability": 0.27886742045876595,
+      "predicted": 0,
+      "is_delayed": 1,
+      "contributions": [
+        {
+          "feature": "weather_condition",
+          "value": "Stormy",
+          "shap": 2.914224713678742
+        },
+        {
+          "feature": "is_peak_hour",
+          "value": 1,
+          "shap": 0.8611494229496138
+        },
+        {
+          "feature": "line_mean_delay_prev_hour",
+          "value": 3.5,
+          "shap": 0.7226618500942362
+        },
+        {
+          "feature": "wind_speed_kmh",
+          "value": 32.64,
+          "shap": 0.6104476264526452
+        },
+        {
+          "feature": "line_mean_delay_prev_day",
+          "value": 2.2222222222222223,
+          "shap": 0.39365395494460925
+        },
+        {
+          "feature": "is_ring_line",
+          "value": 1,
+          "shap": 0.19709272069684428
+        },
+        {
+          "feature": "line_id",
+          "value": "S42",
+          "shap": 0.07535813996249194
+        },
+        {
+          "feature": "day_of_week",
+          "value": 4,
+          "shap": 0.06967537364797605
+        },
+        {
+          "feature": "route_key",
+          "value": "S42|S6|S10",
+          "shap": -0.06564354516573107
+        },
+        {
+          "feature": "line_trips_prev_day",
+          "value": 54,
+          "shap": 0.043017861565130044
+        },
+        {
+          "feature": "line_trips_prev_hour",
+          "value": 2,
+          "shap": 0.03756206267478576
+        },
+        {
+          "feature": "hour",
+          "value": 9,
+          "shap": -0.023954705731212417
+        },
+        {
+          "feature": "network_load",
+          "value": 20,
+          "shap": -0.0235044802689753
+        },
+        {
+          "feature": "is_strike_day",
+          "value": 0,
+          "shap": -0.023257185857655904
+        },
+        {
+          "feature": "is_weekend",
+          "value": 0,
+          "shap": 0.021718417209692528
+        },
+        {
+          "feature": "month",
+          "value": 12,
+          "shap": 0.021705224684281606
+        },
+        {
+          "feature": "precipitation_mm",
+          "value": 2.04,
+          "shap": 0.0197400939842644
+        },
+        {
+          "feature": "line_delay_rate_prev_hour",
+          "value": 0.0,
+          "shap": -0.015148908146737907
+        },
+        {
+          "feature": "line_delay_rate_prev_day",
+          "value": 0.018518518518518517,
+          "shap": -0.014826232475007271
+        },
+        {
+          "feature": "rain_at_peak",
+          "value": 1,
+          "shap": 0.009254583875486324
+        },
+        {
+          "feature": "location_pair",
+          "value": "airport to suburb",
+          "shap": 0.00908703549220713
+        },
+        {
+          "feature": "start_station_trips_prev_hour",
+          "value": 2,
+          "shap": -0.00882688624232618
+        },
+        {
+          "feature": "is_raining",
+          "value": 1,
+          "shap": -0.008257741200789176
+        },
+        {
+          "feature": "start_station_delay_rate_prev_hour",
+          "value": 0.0,
+          "shap": 0.006747236463771857
+        },
+        {
+          "feature": "temperature_c",
+          "value": 14.43,
+          "shap": -0.005391662208966493
+        },
+        {
+          "feature": "is_event_day",
+          "value": 0,
+          "shap": -0.004355406206542644
+        },
+        {
+          "feature": "end_station_id",
+          "value": "S10",
+          "shap": -0.0007853956835917058
+        },
+        {
+          "feature": "event_name",
+          "value": null,
+          "shap": -0.000735755050827112
+        },
+        {
+          "feature": "end_is_major_hub",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "end_location_category",
+          "value": "suburb",
+          "shap": 0.0
+        },
+        {
+          "feature": "has_incident",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "hub_pattern",
+          "value": "neither",
+          "shap": 0.0
+        },
+        {
+          "feature": "incident_type",
+          "value": null,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_is_major_hub",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_location_category",
+          "value": "airport",
+          "shap": 0.0
+        },
+        {
+          "feature": "start_station_id",
+          "value": "S6",
+          "shap": 0.0
+        }
+      ]
+    },
+    {
+      "role": "ordinary_false_alarm",
+      "row": 13545,
+      "line_id": "S41",
+      "hour": 8,
+      "disruption": "none",
+      "probability": 0.3007116478633023,
+      "predicted": 1,
+      "is_delayed": 0,
+      "contributions": [
+        {
+          "feature": "weather_condition",
+          "value": "Stormy",
+          "shap": 2.997694620835635
+        },
+        {
+          "feature": "wind_speed_kmh",
+          "value": 34.57,
+          "shap": 0.8062706288402879
+        },
+        {
+          "feature": "line_mean_delay_prev_hour",
+          "value": 3.5,
+          "shap": 0.6391620386890613
+        },
+        {
+          "feature": "is_peak_hour",
+          "value": 1,
+          "shap": 0.5664998845228485
+        },
+        {
+          "feature": "route_key",
+          "value": "S41|S10|S8",
+          "shap": 0.5340912899705924
+        },
+        {
+          "feature": "line_mean_delay_prev_day",
+          "value": 0.926829268292683,
+          "shap": -0.2965777130882984
+        },
+        {
+          "feature": "is_ring_line",
+          "value": 1,
+          "shap": 0.27484883475512384
+        },
+        {
+          "feature": "start_station_delay_rate_prev_hour",
+          "value": null,
+          "shap": 0.19931146569115768
+        },
+        {
+          "feature": "day_of_week",
+          "value": 0,
+          "shap": 0.061829663809575185
+        },
+        {
+          "feature": "line_id",
+          "value": "S41",
+          "shap": 0.059669810855780075
+        },
+        {
+          "feature": "hour",
+          "value": 8,
+          "shap": 0.046540387237786036
+        },
+        {
+          "feature": "temperature_c",
+          "value": 16.06,
+          "shap": -0.03851791185404703
+        },
+        {
+          "feature": "line_delay_rate_prev_day",
+          "value": 0.0,
+          "shap": -0.031068144258507655
+        },
+        {
+          "feature": "line_trips_prev_hour",
+          "value": 2,
+          "shap": 0.028505508652349326
+        },
+        {
+          "feature": "is_weekend",
+          "value": 0,
+          "shap": 0.025725485576574256
+        },
+        {
+          "feature": "is_strike_day",
+          "value": 0,
+          "shap": -0.023488400213722525
+        },
+        {
+          "feature": "precipitation_mm",
+          "value": 1.55,
+          "shap": 0.02081055422036269
+        },
+        {
+          "feature": "start_station_trips_prev_hour",
+          "value": 0,
+          "shap": 0.019271564474812833
+        },
+        {
+          "feature": "line_trips_prev_day",
+          "value": 41,
+          "shap": 0.014280968893050614
+        },
+        {
+          "feature": "line_delay_rate_prev_hour",
+          "value": 0.0,
+          "shap": -0.013121733242818127
+        },
+        {
+          "feature": "rain_at_peak",
+          "value": 1,
+          "shap": 0.010231243596730891
+        },
+        {
+          "feature": "network_load",
+          "value": 10,
+          "shap": 0.009482219347387306
+        },
+        {
+          "feature": "location_pair",
+          "value": "suburb to city_center",
+          "shap": 0.00908703549220713
+        },
+        {
+          "feature": "month",
+          "value": 12,
+          "shap": 0.0072425769252593055
+        },
+        {
+          "feature": "is_event_day",
+          "value": 0,
+          "shap": -0.004310459321501093
+        },
+        {
+          "feature": "end_station_id",
+          "value": "S8",
+          "shap": 0.0011460446165262163
+        },
+        {
+          "feature": "event_name",
+          "value": null,
+          "shap": -0.000735755050827112
+        },
+        {
+          "feature": "is_raining",
+          "value": 1,
+          "shap": 0.000701880974298325
+        },
+        {
+          "feature": "end_is_major_hub",
+          "value": 1,
+          "shap": 0.0
+        },
+        {
+          "feature": "end_location_category",
+          "value": "city_center",
+          "shap": 0.0
+        },
+        {
+          "feature": "has_incident",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "hub_pattern",
+          "value": "end",
+          "shap": 0.0
+        },
+        {
+          "feature": "incident_type",
+          "value": null,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_is_major_hub",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_location_category",
+          "value": "suburb",
+          "shap": 0.0
+        },
+        {
+          "feature": "start_station_id",
+          "value": "S10",
+          "shap": 0.0
+        }
+      ]
+    },
+    {
+      "role": "s41_miss",
+      "row": 12406,
+      "line_id": "S41",
+      "hour": 9,
+      "disruption": "none",
+      "probability": 0.24946059570682566,
+      "predicted": 0,
+      "is_delayed": 1,
+      "contributions": [
+        {
+          "feature": "weather_condition",
+          "value": "Stormy",
+          "shap": 2.5803169614070303
+        },
+        {
+          "feature": "line_mean_delay_prev_day",
+          "value": 2.765625,
+          "shap": 0.9970290166305897
+        },
+        {
+          "feature": "line_mean_delay_prev_hour",
+          "value": 6.0,
+          "shap": 0.9419233380908721
+        },
+        {
+          "feature": "is_peak_hour",
+          "value": 1,
+          "shap": 0.7190735139393795
+        },
+        {
+          "feature": "wind_speed_kmh",
+          "value": 32.64,
+          "shap": 0.6236877994735969
+        },
+        {
+          "feature": "route_key",
+          "value": "S41|S4|S5",
+          "shap": -0.5131563699731174
+        },
+        {
+          "feature": "is_ring_line",
+          "value": 1,
+          "shap": 0.20117622949529385
+        },
+        {
+          "feature": "line_delay_rate_prev_hour",
+          "value": 0.3333333333333333,
+          "shap": 0.09872067034495109
+        },
+        {
+          "feature": "day_of_week",
+          "value": 4,
+          "shap": 0.09830480246029281
+        },
+        {
+          "feature": "start_station_delay_rate_prev_hour",
+          "value": 0.0,
+          "shap": -0.0964895676026681
+        },
+        {
+          "feature": "line_id",
+          "value": "S41",
+          "shap": 0.04406762279943848
+        },
+        {
+          "feature": "rain_at_peak",
+          "value": 1,
+          "shap": 0.032412090184453624
+        },
+        {
+          "feature": "is_strike_day",
+          "value": 0,
+          "shap": -0.02647501345099162
+        },
+        {
+          "feature": "network_load",
+          "value": 20,
+          "shap": -0.019313273346134138
+        },
+        {
+          "feature": "temperature_c",
+          "value": 14.43,
+          "shap": 0.015090370022999575
+        },
+        {
+          "feature": "is_weekend",
+          "value": 0,
+          "shap": 0.009565098285180323
+        },
+        {
+          "feature": "is_raining",
+          "value": 1,
+          "shap": -0.008257741200789176
+        },
+        {
+          "feature": "start_station_trips_prev_hour",
+          "value": 2,
+          "shap": -0.008125476054173162
+        },
+        {
+          "feature": "line_trips_prev_hour",
+          "value": 3,
+          "shap": -0.007545920180183153
+        },
+        {
+          "feature": "line_trips_prev_day",
+          "value": 64,
+          "shap": -0.005786802875762464
+        },
+        {
+          "feature": "line_delay_rate_prev_day",
+          "value": 0.03125,
+          "shap": -0.005754224484074311
+        },
+        {
+          "feature": "is_event_day",
+          "value": 0,
+          "shap": -0.004330770393478007
+        },
+        {
+          "feature": "precipitation_mm",
+          "value": 2.04,
+          "shap": -0.003142891769222867
+        },
+        {
+          "feature": "end_station_id",
+          "value": "S5",
+          "shap": 0.0025740349344629296
+        },
+        {
+          "feature": "location_pair",
+          "value": "city_center to event_venue",
+          "shap": 0.001555469054427822
+        },
+        {
+          "feature": "month",
+          "value": 12,
+          "shap": 0.001364010505732489
+        },
+        {
+          "feature": "hour",
+          "value": 9,
+          "shap": -0.0007434613313826896
+        },
+        {
+          "feature": "event_name",
+          "value": null,
+          "shap": -0.000735755050827112
+        },
+        {
+          "feature": "end_is_major_hub",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "end_location_category",
+          "value": "event_venue",
+          "shap": 0.0
+        },
+        {
+          "feature": "has_incident",
+          "value": 0,
+          "shap": 0.0
+        },
+        {
+          "feature": "hub_pattern",
+          "value": "start",
+          "shap": 0.0
+        },
+        {
+          "feature": "incident_type",
+          "value": null,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_is_major_hub",
+          "value": 1,
+          "shap": 0.0
+        },
+        {
+          "feature": "start_location_category",
+          "value": "city_center",
+          "shap": 0.0
+        },
+        {
+          "feature": "start_station_id",
+          "value": "S4",
+          "shap": 0.0
+        }
+      ]
+    }
+  ]
+}

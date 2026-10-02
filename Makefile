@@ -1,4 +1,4 @@
-.PHONY: install test interim data features tune track evaluate
+.PHONY: install test interim data features tune track evaluate slices shap
 
 install:
 	python -m pip install -e ".[dev,notebooks]"
@@ -23,3 +23,9 @@ track:
 
 evaluate:
 	python -m sbahn.models.evaluate
+
+slices:
+	python -m sbahn.models.slices
+
+shap:
+	python -m sbahn.models.shap_explain

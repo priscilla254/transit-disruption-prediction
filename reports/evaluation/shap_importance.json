@@ -1,0 +1,188 @@
+{
+  "cutoff": "2024-11-01",
+  "threshold": 0.3,
+  "model": "no-weighting",
+  "test_rows": 21426,
+  "features": [
+    {
+      "name": "line_mean_delay_prev_hour",
+      "mean_abs_shap": 0.42640096551218293,
+      "rank": 1
+    },
+    {
+      "name": "weather_condition",
+      "mean_abs_shap": 0.37302637971221403,
+      "rank": 2
+    },
+    {
+      "name": "route_key",
+      "mean_abs_shap": 0.3301115487167991,
+      "rank": 3
+    },
+    {
+      "name": "line_mean_delay_prev_day",
+      "mean_abs_shap": 0.25921785917310064,
+      "rank": 4
+    },
+    {
+      "name": "is_strike_day",
+      "mean_abs_shap": 0.12639587596779953,
+      "rank": 5
+    },
+    {
+      "name": "is_peak_hour",
+      "mean_abs_shap": 0.11919455938860207,
+      "rank": 6
+    },
+    {
+      "name": "line_delay_rate_prev_day",
+      "mean_abs_shap": 0.11613511850712073,
+      "rank": 7
+    },
+    {
+      "name": "wind_speed_kmh",
+      "mean_abs_shap": 0.11242551129750246,
+      "rank": 8
+    },
+    {
+      "name": "is_ring_line",
+      "mean_abs_shap": 0.0333627846836045,
+      "rank": 9
+    },
+    {
+      "name": "precipitation_mm",
+      "mean_abs_shap": 0.03292703386068502,
+      "rank": 10
+    },
+    {
+      "name": "start_station_delay_rate_prev_hour",
+      "mean_abs_shap": 0.031258784767926956,
+      "rank": 11
+    },
+    {
+      "name": "day_of_week",
+      "mean_abs_shap": 0.02487133439552418,
+      "rank": 12
+    },
+    {
+      "name": "line_delay_rate_prev_hour",
+      "mean_abs_shap": 0.0205435425848736,
+      "rank": 13
+    },
+    {
+      "name": "network_load",
+      "mean_abs_shap": 0.012837718829874861,
+      "rank": 14
+    },
+    {
+      "name": "start_station_trips_prev_hour",
+      "mean_abs_shap": 0.010787093071063666,
+      "rank": 15
+    },
+    {
+      "name": "hour",
+      "mean_abs_shap": 0.009641465602919263,
+      "rank": 16
+    },
+    {
+      "name": "month",
+      "mean_abs_shap": 0.00953157395683513,
+      "rank": 17
+    },
+    {
+      "name": "line_trips_prev_day",
+      "mean_abs_shap": 0.008170921250814818,
+      "rank": 18
+    },
+    {
+      "name": "temperature_c",
+      "mean_abs_shap": 0.008097976326475128,
+      "rank": 19
+    },
+    {
+      "name": "is_event_day",
+      "mean_abs_shap": 0.007577884393129587,
+      "rank": 20
+    },
+    {
+      "name": "rain_at_peak",
+      "mean_abs_shap": 0.007459977097084938,
+      "rank": 21
+    },
+    {
+      "name": "line_id",
+      "mean_abs_shap": 0.00719177261364412,
+      "rank": 22
+    },
+    {
+      "name": "line_trips_prev_hour",
+      "mean_abs_shap": 0.006186397317238108,
+      "rank": 23
+    },
+    {
+      "name": "is_weekend",
+      "mean_abs_shap": 0.0033606998806452832,
+      "rank": 24
+    },
+    {
+      "name": "end_station_id",
+      "mean_abs_shap": 0.0023064142190828154,
+      "rank": 25
+    },
+    {
+      "name": "is_raining",
+      "mean_abs_shap": 0.0013293215679728862,
+      "rank": 26
+    },
+    {
+      "name": "event_name",
+      "mean_abs_shap": 0.0009621458352983195,
+      "rank": 27
+    },
+    {
+      "name": "location_pair",
+      "mean_abs_shap": 0.000576035388835438,
+      "rank": 28
+    },
+    {
+      "name": "end_is_major_hub",
+      "mean_abs_shap": 0.0,
+      "rank": 29
+    },
+    {
+      "name": "end_location_category",
+      "mean_abs_shap": 0.0,
+      "rank": 30
+    },
+    {
+      "name": "has_incident",
+      "mean_abs_shap": 0.0,
+      "rank": 31
+    },
+    {
+      "name": "hub_pattern",
+      "mean_abs_shap": 0.0,
+      "rank": 32
+    },
+    {
+      "name": "incident_type",
+      "mean_abs_shap": 0.0,
+      "rank": 33
+    },
+    {
+      "name": "start_is_major_hub",
+      "mean_abs_shap": 0.0,
+      "rank": 34
+    },
+    {
+      "name": "start_location_category",
+      "mean_abs_shap": 0.0,
+      "rank": 35
+    },
+    {
+      "name": "start_station_id",
+      "mean_abs_shap": 0.0,
+      "rank": 36
+    }
+  ]
+}
