@@ -53,8 +53,11 @@ At 0.30 the holdout confusion matrix is 20,380 true on-time, 162 false alarms, 9
 | Missed delays | 91 |
 | Caught delays | 793 |
 | Delayed-class F1 | 0.862 |
+| 95% interval for that F1 | 0.844 to 0.879 |
 | On-time recall | 0.992 |
 | Delayed recall | 0.897 |
+
+The interval resamples the 21,426 scored holdout rows 1,000 times and leaves the trees as they are. It is stored in `reports/evaluation/uncertainty.json`.
 
 `reports/evaluation/test_metrics.json` scores the same trees at the search cutoff of 0.50. That file also reports a separate regression model: the same tree settings, without `scale_pos_weight`, predicting `delay_minutes`.
 

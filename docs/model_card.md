@@ -74,6 +74,8 @@ The development F1 peaks at 0.30 (0.647). The neighbor at 0.35 is 0.646, and 0.5
 
 At 0.30 on November–December the confusion matrix is 20,380 true on-time, 162 false alarms, 91 missed delays, and 793 caught delays. Delayed recall is 0.897 and on-time recall is 0.992. Delayed-class F1 is 0.862, a little below the 0.874 scored at 0.50. That holdout gap is not a reason to move the cutoff back: the cutoff was locked on January–October.
 
+A 95% bootstrap interval for that delayed-class F1 is 0.844 to 0.879. It comes from 1,000 resamples of the 21,426 scored rows, with the trees left as they are. The interval is in `reports/evaluation/uncertainty.json`.
+
 The calibration curve uses ten equal-count bins of the predicted probability. Nine bins sit on the origin: the model assigns nearly zero probability to most trips, and those trips are almost all on time. The top bin has a mean predicted probability of 0.40 and a delayed share of 0.41, on the diagonal. Plots: `reports/figures/confusion_matrix.png` and `reports/figures/calibration_curve.png`.
 
 ## Error analysis by slice
@@ -88,6 +90,8 @@ On the whole holdout the rule raises 162 false alarms and misses 91 delays. Thos
 | Strike | 565 | 93.6% | 0.936 | 0.991 | 0.962 | 36 | 5 |
 | Incident | 8 | 0% | 0.000 | 0.000 | 0.000 | 0 | 0 |
 | Event | 0 | — | — | — | — | 0 | 0 |
+
+The strike-day delay rate is 529 of 565 trips (93.6%) and the ordinary-day rate is 355 of 20,853 (1.7%). A two-sided two-proportion z-test of those labels gives z = 108.4, and the p-value underflows to 0.
 
 All 8 incident trips were on time, and all 8 were called on time. Delayed-class F1 is 0 because that slice has no delayed trip. The event-day slice has no November–December trips, so it has no errors to count.
 

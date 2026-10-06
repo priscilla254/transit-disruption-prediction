@@ -1,4 +1,4 @@
-.PHONY: install lint test interim data features train tune track evaluate slices shap predict pipeline
+.PHONY: install lint test interim data features train tune track evaluate slices shap predict uncertainty pipeline
 
 install:
 	python -m pip install -e ".[dev,notebooks]"
@@ -35,6 +35,9 @@ shap:
 
 predict:
 	python -m sbahn.predict --input data/processed/trips_features.parquet --output reports/evaluation/batch_predictions.parquet
+
+uncertainty:
+	python -m sbahn.models.uncertainty
 
 pipeline:
 	$(MAKE) interim
